@@ -1,0 +1,123 @@
+<div class="container">
+  <div class="cont">
+    <h1>Напишите Нам</h1>
+    <div class="content">
+
+
+    <div class="left">
+      <label class="label_item">Ваше имя </label>
+      <label class="label_item">Email </label>
+      <label class="label_item">Телефон </label>
+      <label class="label_item">Тема </label>
+      <label class="label_item">Сообщение </label>
+    </div>
+
+    <div class="right">
+
+      <form class="card" [formGroup]="form">
+
+
+        <div class="form-control">
+
+          <input type="text" [(ngModel)]="personForm.name"  placeholder="Имя" formControlName="name">
+        </div>
+          <div
+            *ngIf="form.get('name')?.invalid && form.get('name')?.touched"
+            class="validation">
+
+            <small *ngIf="form.get('name')?.hasError('required')">
+              Поле Имя не может быть пустым
+            </small>
+
+            <small *ngIf="form.get('name')?.errors?.['minlength']" >
+              Длина дожна быть не менее 2 символа
+            </small>
+
+          </div>
+
+
+        <br>
+
+        <div class="form-control">
+
+          <input type="text" [(ngModel)]="personForm.email" placeholder="Email" formControlName="email" size="33">
+          <div
+            *ngIf="form.get('email')?.invalid && form.get('email')?.touched"
+            class="validation">
+
+
+            <small *ngIf="form.get('email')?.hasError('required')">
+              Поле email не может быть пустым
+            </small>
+            <small *ngIf="form.get('email')?.hasError('email')">
+              Некорретный email
+            </small>
+          </div>
+        </div>
+
+        <br>
+
+        <div class="form-control">
+
+          <p-inputMask styleClass="form-control" [(ngModel)]="personForm.phone" placeholder="8 (999) 999-99-99" formControlName="phone" mask="8 (999) 999-99-99" [size]=38></p-inputMask>
+
+          <div
+            *ngIf="form.get('phone')?.invalid && form.get('phone')?.touched"
+            class="validation">
+
+            <small *ngIf="form.get('phone')?.hasError('required')">
+              Поле Телефон не может быть пустым
+            </small>
+          </div>
+        </div>
+
+        <br>
+
+        <div class="form-control">
+
+          <select [(ngModel)]="messageForm.subjectId"  formControlName="subjectId">
+            <option
+              *ngFor="let subject of subjects"
+              value="{{subject.id}}"
+              [ngValue]="subject.id"
+            >
+              {{subject.name}}
+            </option>
+          </select>
+        </div>
+
+        <br>
+
+        <div class="form-control">
+
+          <textarea  type="text" [(ngModel)]="messageForm.message" placeholder="Сообщение" formControlName="message" ></textarea>
+          <div
+            *ngIf="form.get('message')?.invalid && form.get('message')?.touched"
+            class="validation">
+
+
+            <small *ngIf="form.get('message')?.hasError('required')">
+              Поле Сообщение не может быть пустым
+            </small>
+
+          </div>
+        </div>
+
+        <br>
+
+        <div class="form-control">
+        <ngx-recaptcha2 formControlName="message" #captchaElem
+          [siteKey] = "siteKey"
+          formControlName="recaptcha">
+        </ngx-recaptcha2>
+      </div>
+
+        <br>
+
+        <button (click)="createMessage()" id="hider" [disabled]="form.invalid" >Отправить</button>
+
+      </form>
+    </div>
+    </div>
+  </div>
+</div>

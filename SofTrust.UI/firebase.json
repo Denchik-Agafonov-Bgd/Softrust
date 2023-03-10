@@ -1,0 +1,10 @@
+{
+  "hosting": {
+    "public": "dist/sof-trust.ui",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
+}

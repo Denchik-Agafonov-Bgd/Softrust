@@ -1,0 +1,1 @@
+{"ast":null,"code":"export class DataOutput {\n  constructor() {\n    this.name = \"\";\n    this.email = \"\";\n    this.phone = \"\";\n  }\n}","map":null,"metadata":{},"sourceType":"module","externalDependencies":[]}

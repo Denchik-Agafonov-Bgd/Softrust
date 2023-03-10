@@ -1,0 +1,59 @@
+.container {
+  width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 60vh;
+}
+
+.cont {
+  width: 100%;
+  max-width: 500px;
+  padding: 0 20px;
+}
+
+
+
+.content {
+  display: flex; /* делаем колонки в ряд */
+
+  justify-content: space-between; /* колонки растянутся на всю ширину */
+  background: #fff;
+  padding: 40px;
+  border-radius: 5px;
+  box-shadow: 4px 4px 8px 0 rgba(34, 60, 80, 0.2);
+}
+
+/* Стили левой колонки */
+.left {
+  width: 25%; /* занимает 25% общей ширины */
+  height: 100%; /* растягиваем на всю высоту */
+   /* позиционирование относительное (для ::before) */
+  display: flex;
+  flex-direction: column; /* внутри элементы располагаем в колонку */
+}
+
+.right {
+  width: 75%; /* занимает 75% общей ширины */
+  display: flex;
+  flex-direction: column;
+}
+
+.label_item {
+  margin-bottom: 21px;
+}
+
+#wgtmsr{
+  width:8px;
+}
+
+.form-control {
+  width: 100%;
+}
+
+.form-control input,
+.form-control textarea,
+.form-control select
+{
+  width: 95%;
+}
