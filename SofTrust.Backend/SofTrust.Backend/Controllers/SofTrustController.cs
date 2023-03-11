@@ -5,6 +5,7 @@ using SofTrust.Backend.Data;
 using SofTrust.Backend.Models;
 using SofTrust.Backend.Repositories;
 using System.Diagnostics.Metrics;
+using System.Reflection;
 
 namespace SofTrust.Backend.Controllers
 {
@@ -32,7 +33,7 @@ namespace SofTrust.Backend.Controllers
         }
 
         [HttpPost("CreateMessage")]
-        public void CreateMessage(Person person, int subjectId, string message)
+        public async Task<ActionResult<MessageInfo>> CreateMessage(Person person, int subjectId, string message)
         {
             Person personNew = _personRepository.GetPersonEmailPhone(person.Email, person.Phone).FirstOrDefault();
 
@@ -42,15 +43,18 @@ namespace SofTrust.Backend.Controllers
                 personNew = _personRepository.GetPersonEmailPhone(person.Email, person.Phone).First();
             }
 
-            _messageRepository.AddMessage(new Message(personNew.Id, subjectId, message));
+            return Ok(await _messageRepository.AddMessage(new Message(personNew.Id, subjectId, message)));
 
         }
 
-        [HttpGet("Output")]
-        public MessageInfo GetLastMessage()
+/*        [HttpGet("Output")]
+        public async Task<ActionResult<Message>> GetLastMessage()
         {
-            return _messageRepository.GetLastMessage().Last();
-        }
+            
+            return Ok(await _context.Message.OrderByDescending(m => m.Id).FirstAsync());
+
+            //return Ok(await _messageRepository.GetLastMessage());
+        }*/
 
 
     }

@@ -11,7 +11,7 @@ export class SubjectService {
   private url = 'SofTrust';
   constructor(private http: HttpClient) { }
 
-  public getSubjects(): Observable<Subject[]> {
+  public  getSubjects(): Observable<Subject[]> {
     return this.http.get<Subject[]>(`${environment.apiUrl}/${this.url}`);
   }
 }

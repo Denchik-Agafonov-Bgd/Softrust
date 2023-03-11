@@ -12,6 +12,8 @@ namespace SofTrust.Backend.Data
         public DbSet<Person> Person => Set<Person>();
 
         public DbSet<Message> Message => Set<Message>();
-       
+
+        public DbSet<MessageInfo> MessageInfo => Set<MessageInfo>();
+
     }
 }

@@ -18,7 +18,8 @@ export class SecondComponent {
     this.GetInfo();
   }
 
-  GetInfo(){
+  async GetInfo(){
+
     this.dataOutputService
     .getDataOutput()
     .subscribe((result: DataOutput) => (this.dataOutput = result));

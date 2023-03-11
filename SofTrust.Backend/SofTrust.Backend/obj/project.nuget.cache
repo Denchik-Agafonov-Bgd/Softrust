@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "yOW83ruuwci4RQ24VIZKwio+2Uf5ZbwajPWz71nLZ72/GuZYcpBJ7Sddctzfv+FrwEkfMqq+BYkKxZHd5bwl3w==",
+  "dgSpecHash": "tyZK0WJP+K8SIleAih2vwsvDAsqWKCLiw3H4Tz2BlCcx8Yye7b4Bdpb2JlWMIhG8tWD6jzacryqlWT/VLp0R/A==",
   "success": true,
-  "projectFilePath": "C:\\Users\\User\\source\\repos\\SofTrust.Backend\\SofTrust.Backend\\SofTrust.Backend.csproj",
+  "projectFilePath": "C:\\Users\\User\\Desktop\\Softrust\\SofTrust.Backend\\SofTrust.Backend\\SofTrust.Backend.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\User\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\User\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",

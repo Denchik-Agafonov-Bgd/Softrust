@@ -3691,11 +3691,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\User\\source\\repos\\SofTrust.Backend\\SofTrust.Backend\\SofTrust.Backend.csproj",
+      "projectUniqueName": "C:\\Users\\User\\Desktop\\Softrust\\SofTrust.Backend\\SofTrust.Backend\\SofTrust.Backend.csproj",
       "projectName": "SofTrust.Backend",
-      "projectPath": "C:\\Users\\User\\source\\repos\\SofTrust.Backend\\SofTrust.Backend\\SofTrust.Backend.csproj",
+      "projectPath": "C:\\Users\\User\\Desktop\\Softrust\\SofTrust.Backend\\SofTrust.Backend\\SofTrust.Backend.csproj",
       "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\User\\source\\repos\\SofTrust.Backend\\SofTrust.Backend\\obj\\",
+      "outputPath": "C:\\Users\\User\\Desktop\\Softrust\\SofTrust.Backend\\SofTrust.Backend\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",

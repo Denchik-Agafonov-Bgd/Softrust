@@ -12,7 +12,7 @@ export class DataOutputService {
   private url = 'SofTrust/Output';
   constructor(private http: HttpClient) { }
 
-  public getDataOutput() {
+  public getDataOutput(): Observable<DataOutput> {
     return this.http.get<DataOutput>(`${environment.apiUrl}/${this.url}`);
   }
 }

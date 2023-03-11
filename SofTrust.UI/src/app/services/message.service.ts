@@ -13,7 +13,7 @@ export class MessageService {
   private url = 'SofTrust/CreateMessage';
   constructor(private http: HttpClient) { }
 
-  public createMessage(message: Message) {
+  public async createMessage(message: Message) {
     return this.http.post<Message>(
     `${environment.apiUrl}/${this.url}`,
     message

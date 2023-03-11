@@ -13,10 +13,25 @@ namespace SofTrust.Backend.Repositories
             _context = context;
         }
 
-        public void AddMessage(Message message)
+        public async Task<MessageInfo> AddMessage(Message message)
         {
             _context.Message.Add(message);
-            _context.SaveChanges();
+            await _context.SaveChangesAsync();
+
+            var result = await (from mess in _context.Message
+                                join pers in _context.Person on mess.PersonId equals pers.Id
+                                join subj in _context.Subject on mess.SubjectId equals subj.Id
+                                orderby mess.Id descending
+                                select new MessageInfo
+                                {
+                                    Name = pers.Name,
+                                    Email = pers.Email,
+                                    Phone = pers.Phone,
+                                    Subject = subj.Name,
+                                    Message = mess.Name
+                                }).FirstAsync();
+
+            return result;
         }
 
         public IEnumerable<Message> GetAllMessage()
@@ -31,22 +46,9 @@ namespace SofTrust.Backend.Repositories
             return messages;
         }
 
-        public IEnumerable<MessageInfo> GetLastMessage()
+        public async Task<Message?> GetLastMessage()
         {
-            var messages = (from m in _context.Message
-                            join p in _context.Person on m.PersonId equals p.Id
-                            join s in _context.Subject on m.SubjectId equals s.Id
-                            select new MessageInfo
-                            {
-                                Name = p.Name,
-                                Email = p.Email,
-                                Phone = p.Phone,
-                                Subject = s.Name,
-                                Message = m.Name
-                            }).ToList();
-
-            return messages;
-
+            return (await _context.Message.FindAsync(1));
         }
     }
 }

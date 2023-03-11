@@ -1,4 +1,4 @@
-<div class="container">
+<div  *ngIf="hero" class="container">
   <div class="cont">
     <h1>Напишите Нам</h1>
     <div class="content">
@@ -119,5 +119,30 @@
       </form>
     </div>
     </div>
+  </div>
+</div>
+
+<div *ngIf="!hero" class="container">
+  <div class="cont">
+    <h1>Сообщение успешно добавлено</h1>
+    <div class="content">
+
+      <div class="left">
+        <label class="label_item">Ваше имя </label>
+        <label class="label_item">Email </label>
+        <label class="label_item">Телефон </label>
+        <label class="label_item">Тема </label>
+        <label class="label_item">Сообщение </label>
+      </div>
+
+      <div class="right2">
+        <label class="label_item">{{dataOutput.name}} </label>
+        <label class="label_item">{{dataOutput.email}} </label>
+        <label class="label_item">{{dataOutput.phone}} </label>
+        <label class="label_item">{{dataOutput.subject}} </label>
+        <label class="label_item">{{dataOutput.message}} </label>
+      </div>
+    </div>
+
   </div>
 </div>

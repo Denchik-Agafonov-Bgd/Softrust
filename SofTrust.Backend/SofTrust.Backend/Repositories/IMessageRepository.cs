@@ -1,12 +1,13 @@
-﻿using SofTrust.Backend.Models;
+﻿using Microsoft.AspNetCore.Mvc;
+using SofTrust.Backend.Models;
 
 namespace SofTrust.Backend.Repositories
 {
     public interface IMessageRepository
     {
         IEnumerable<Message> GetAllMessage();
-        void AddMessage(Message message);
+        Task<MessageInfo> AddMessage(Message message);
 
-        IEnumerable<MessageInfo> GetLastMessage();
+        Task<Message> GetLastMessage();
     }
 }

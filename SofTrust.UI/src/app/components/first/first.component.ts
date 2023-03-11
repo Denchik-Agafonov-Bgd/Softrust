@@ -7,6 +7,8 @@ import { Subject } from 'src/app/models/subject';
 import { PersonServices } from 'src/app/services/person.service';
 import { SubjectService } from 'src/app/services/subject.service';
 import { MessageService } from 'src/app/services/message.service';
+import { DataOutput } from 'src/app/models/dataOutput';
+import { DataOutputService } from 'src/app/services/dataOutput';
 
 @Component({
   selector: 'app-first',
@@ -43,6 +45,10 @@ export class FirstComponent {
   });
   title = 'SofTrust.UI';
 
+  hero: boolean = true;
+
+  dataOutput: DataOutput = new DataOutput;
+
   subjects: Subject[] = []
   message: Message = new Message
   person: Person = new Person
@@ -56,6 +62,7 @@ export class FirstComponent {
     private formBuilder: FormBuilder,
     private personServices : PersonServices,
     private router: Router,
+    private dataOutputService: DataOutputService
     ) {}
 
   ngOnInit(): void {
@@ -64,17 +71,17 @@ export class FirstComponent {
     .subscribe((result: Subject[]) => (this.subjects = result));
   }
 
-  createMessage(){
+  async createMessage(){
     this.personServices
     .createPersonAndMessage(this.personForm, this.messageForm.subjectId, this.messageForm.message)
     .subscribe({
-      next:(result: Person) => {this.person = result}
+      next:(result: DataOutput) => {this.dataOutput = result}
     });
 
-    this.goToNextPage();
+    this.hero=false;
   }
 
-  async goToNextPage() {
-    await this.router.navigate(['/second']);
+  goToNextPage() {
+    this.router.navigate(['/second']);
   }
 }

@@ -55,3 +55,9 @@
 {
   width: 95%;
 }
+
+.right2 {
+  width: 75%; /* занимает 75% общей ширины */
+  display: flex;
+  flex-direction: column;
+}
