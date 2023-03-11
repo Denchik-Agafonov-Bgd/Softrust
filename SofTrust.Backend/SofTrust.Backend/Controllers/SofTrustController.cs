@@ -44,18 +44,6 @@ namespace SofTrust.Backend.Controllers
             }
 
             return Ok(await _messageRepository.AddMessage(new Message(personNew.Id, subjectId, message)));
-
         }
-
-/*        [HttpGet("Output")]
-        public async Task<ActionResult<Message>> GetLastMessage()
-        {
-            
-            return Ok(await _context.Message.OrderByDescending(m => m.Id).FirstAsync());
-
-            //return Ok(await _messageRepository.GetLastMessage());
-        }*/
-
-
     }
 }

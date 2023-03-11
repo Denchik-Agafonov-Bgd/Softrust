@@ -11,7 +11,6 @@ namespace SofTrust.Backend.Repositories
         {
             _context = context;
         }
-
         public IEnumerable<Subject> GetAllSubject()
         {
             var subjects = (from s in _context.Subject

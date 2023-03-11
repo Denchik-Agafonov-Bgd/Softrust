@@ -12,8 +12,6 @@
   padding: 0 20px;
 }
 
-
-
 .content {
   display: flex; /* делаем колонки в ряд */
 
@@ -39,10 +37,6 @@
 
 .label_item {
   margin-bottom: 21px;
-}
-
-#wgtmsr{
-  width:8px;
 }
 
 .form-control {

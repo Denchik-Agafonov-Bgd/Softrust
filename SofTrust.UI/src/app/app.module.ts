@@ -8,7 +8,6 @@ import { AppComponent } from './app.component';
 import {InputMaskModule} from 'primeng/inputmask';
 import { NgxCaptchaModule } from 'ngx-captcha';
 import { FirstComponent } from './components/first/first.component';
-import { SecondComponent } from './components/second/second.component';
 
 
 
@@ -16,7 +15,6 @@ import { SecondComponent } from './components/second/second.component';
   declarations: [
     AppComponent,
     FirstComponent,
-    SecondComponent
   ],
   imports: [
     BrowserModule,
