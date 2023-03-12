@@ -17,7 +17,7 @@ builder.Services.AddScoped<IPersonRepository, PersonRepository>();
 
 builder.Services.AddDbContext<DataContext>(options =>
 {
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")); //test
 });
 
 builder.Services.AddCors(options => options.AddPolicy(name: "SofTrustOrigins",

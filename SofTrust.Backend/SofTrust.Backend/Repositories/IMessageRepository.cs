@@ -5,9 +5,7 @@ namespace SofTrust.Backend.Repositories
 {
     public interface IMessageRepository
     {
-        IEnumerable<Message> GetAllMessage();
+        Task<List<Message>> GetAllMessage();
         Task<MessageInfo> AddMessage(Message message);
-
-        Task<Message> GetLastMessage();
     }
 }

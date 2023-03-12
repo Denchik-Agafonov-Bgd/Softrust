@@ -1,5 +1,7 @@
-﻿using SofTrust.Backend.Data;
+﻿using Microsoft.EntityFrameworkCore;
+using SofTrust.Backend.Data;
 using SofTrust.Backend.Models;
+using System.Collections.Generic;
 
 namespace SofTrust.Backend.Repositories
 {
@@ -11,15 +13,14 @@ namespace SofTrust.Backend.Repositories
         {
             _context = context;
         }
-        public IEnumerable<Subject> GetAllSubject()
+        public async Task<List<Subject>> GetAllSubject()
         {
-            var subjects = (from s in _context.Subject
-                            select new Subject
-                            {
-                                Id = s.Id,
-                                Name = s.Name,
-                            }).ToList();
-            return subjects;
+            return await (from s in _context.Subject
+                                  select new Subject
+                                  {
+                                      Id = s.Id,
+                                      Name = s.Name,
+                                  }).ToListAsync();
         }
     }
 }
