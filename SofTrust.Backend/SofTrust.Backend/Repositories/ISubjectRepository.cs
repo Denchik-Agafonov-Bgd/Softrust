@@ -4,6 +4,6 @@ namespace SofTrust.Backend.Repositories
 {
     public interface ISubjectRepository
     {
-        IEnumerable<Subject> GetAllSubject();
+        Task<List<Subject>> GetAllSubject();
     }
 }

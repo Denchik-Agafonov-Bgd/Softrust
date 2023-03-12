@@ -18,7 +18,7 @@ namespace SofTrust.Backend.Repositories
             _context.Message.Add(message);
             await _context.SaveChangesAsync();
 
-            var result = await (from mess in _context.Message
+            return await (from mess in _context.Message
                                 join pers in _context.Person on mess.PersonId equals pers.Id
                                 join subj in _context.Subject on mess.SubjectId equals subj.Id
                                 orderby mess.Id descending
@@ -30,25 +30,17 @@ namespace SofTrust.Backend.Repositories
                                     Subject = subj.Name,
                                     Message = mess.Name
                                 }).FirstAsync();
-
-            return result;
         }
 
-        public IEnumerable<Message> GetAllMessage()
+        public async Task<List<Message>> GetAllMessage()
         {
-            var messages = (from m in _context.Message
+            return await (from m in _context.Message
                             select new Message
                             {
                                 PersonId = m.PersonId,
                                 SubjectId = m.SubjectId,
                                 Name = m.Name
-                            }).ToList();
-            return messages;
-        }
-
-        public async Task<Message?> GetLastMessage()
-        {
-            return (await _context.Message.FindAsync(1));
+                            }).ToListAsync();
         }
     }
 }

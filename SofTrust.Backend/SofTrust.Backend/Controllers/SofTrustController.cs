@@ -27,23 +27,22 @@ namespace SofTrust.Backend.Controllers
         }
 
         [HttpGet]
-        public IEnumerable<Subject> GetAllSubject()
+        public async Task<ActionResult<List<Subject>>> GetAllSubject()
         {
-            return _subjectRepository.GetAllSubject().ToList();
+            return await _subjectRepository.GetAllSubject();
         }
 
         [HttpPost("CreateMessage")]
         public async Task<ActionResult<MessageInfo>> CreateMessage(Person person, int subjectId, string message)
         {
-            Person personNew = _personRepository.GetPersonEmailPhone(person.Email, person.Phone).FirstOrDefault();
+            Person newPerson = await _personRepository.GetPersonEmailPhone(person.Email, person.Phone);
 
-            if (personNew is null)
+            if (newPerson is null)
             {
-                _personRepository.AddPerson(person);
-                personNew = _personRepository.GetPersonEmailPhone(person.Email, person.Phone).First();
+                newPerson = await _personRepository.AddPerson(person);
             }
 
-            return Ok(await _messageRepository.AddMessage(new Message(personNew.Id, subjectId, message)));
+            return Ok(await _messageRepository.AddMessage(new Message(newPerson.Id, subjectId, message)));
         }
     }
 }

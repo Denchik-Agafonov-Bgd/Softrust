@@ -4,8 +4,8 @@ namespace SofTrust.Backend.Repositories
 {
     public interface IPersonRepository
     {
-        IEnumerable<Person> GetPersonEmailPhone(string email, string phone);
+        Task<Person> GetPersonEmailPhone(string email, string phone);
 
-        void AddPerson(Person person);
+        Task<Person> AddPerson(Person person);
     }
 }
